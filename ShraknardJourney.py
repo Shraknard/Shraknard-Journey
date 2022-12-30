@@ -22,8 +22,7 @@ async def on_message(message):
 	# Send the first message so people knows it is processing.
 	embed = discord.Embed(title="Generating a Midjourney input", color=0xf5f542)
 	embed.add_field(name="Question", value=question, inline=False)
-	embed.add_field(name="Generated description", value="Please wait...", inline=False)
-	embed.add_field(name="Final Midjourney input", value="Please wait...", inline=False)
+	embed.add_field(name="Generated output", value="Please wait...", inline=False)
 	msg = await message.channel.send(embed=embed)
 
 	# Use the ChatGPT API to generate a detailed response
@@ -40,8 +39,7 @@ async def on_message(message):
 	# Send an other message showing update
 	embed = discord.Embed(title="Generating a Midjourney input", color=0xf5f542)
 	embed.add_field(name="Question", value=question, inline=False)
-	embed.add_field(name="Generated description", value=response, inline=False) 
-	embed.add_field(name="Final Midjourney input", value="Please wait...", inline=False)
+	embed.add_field(name="Generated output", value="Please wait...", inline=False)
 	await msg.edit(embed=embed)
 
 	# Ask ChatGPT to make a lsit of pronouns and adjectives from the description it generated
@@ -63,8 +61,7 @@ async def on_message(message):
 	try:
 		embed = discord.Embed(title="Generating a Midjourney input", color=0xf5f542)
 		embed.add_field(name="Question", value=question, inline=False)
-		embed.add_field(name="Generated description", value=response, inline=False)
-		embed.add_field(name="Final Midjourney input", value=final, inline=False)
+		embed.add_field(name="Generated output", value=final, inline=False)
 		await msg.edit(embed=embed)
 	except ValueError as e:
 		await message.channel.send("Error while generating message")
