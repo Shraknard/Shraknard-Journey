@@ -30,7 +30,7 @@ async def on_message(message):
 	response = openai.Completion.create(
 		engine="text-davinci-003",
 		prompt=question,
-		max_tokens=1000,
+		max_tokens=900,
 		temperature=0.5,
 		top_p=1,
 		frequency_penalty=1,
