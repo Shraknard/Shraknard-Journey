@@ -1,11 +1,11 @@
 # Shraknard Journey
 
-<img src="https://github.com/Shraknard/Shraknard-Journey/blob/main/example.png" alt="example" width="400"/>
-
 ## Description
 
 This bot purpose is to generate detailed text to input in [Midjourney](https://www.midjourney.com/).  
 It uses [ChatGPT](https://chat.openai.com/chat) to generate detailed descriptions that are then condensed in a text containing mostly pronouns and adjective separated by comas. 
+
+<img src="https://github.com/Shraknard/Shraknard-Journey/blob/main/example.png" alt="example" width="400"/>
 
 ## usage
 
