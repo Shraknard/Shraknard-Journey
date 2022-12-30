@@ -1,5 +1,7 @@
 # Shraknard Journey
 
+<img src="https://github.com/Shraknard/Shraknard-Journey/blob/main/example.png" alt="example" width="400"/>
+
 ## Description
 
 This bot purpose is to generate detailed text to input in [Midjourney](https://www.midjourney.com/).  
