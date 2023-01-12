@@ -16,9 +16,10 @@ async def on_message(message):
 		return
 
 	# Define the prompt for the chatbot
-	basePrompt = "Imagine a detailed description for " 
+	basePrompt = "Imagine a very detailed visual description for " 
 	question = basePrompt + message.content.replace('!detail ', '')
-	
+	details = '; rich in terms but condensed to focus on pronouns and adjectives separated by coma. The condensed should be at least 120 characters long.'
+
 	# Send the first message so people knows it is processing.
 	embed = discord.Embed(title="Generating a Midjourney input", color=0xf5f542)
 	embed.add_field(name="Question", value=question, inline=False)
@@ -28,7 +29,7 @@ async def on_message(message):
 	# Use the ChatGPT API to generate a detailed response
 	response = openai.Completion.create(
 		engine="text-davinci-003",
-		prompt=question,
+		prompt=question + details,
 		max_tokens=900,
 		temperature=0.5,
 		top_p=1,
@@ -36,26 +37,8 @@ async def on_message(message):
 		presence_penalty=2
 	)['choices'][0].text
 	
-	# Send an other message showing update
-	embed = discord.Embed(title="Generating a Midjourney input", color=0xf5f542)
-	embed.add_field(name="Question", value=question, inline=False)
-	embed.add_field(name="Generated output", value="Please wait...", inline=False)
-	await msg.edit(embed=embed)
-
-	# Ask ChatGPT to make a lsit of pronouns and adjectives from the description it generated
-	condense = '"' + response + " Condense this description to focus on pronouns and adjectives separated by coma" + '"'
-	res = openai.Completion.create(
-		engine="text-davinci-003",
-		prompt=condense,
-		max_tokens=500,
-		temperature=0.2,
-		top_p=1,
-		frequency_penalty=1,
-		presence_penalty=2,
-	)['choices'][0].text
-	
 	# Update the final string
-	final = question.replace(basePrompt, '') + " " + res.replace('\n', '')
+	final = question.replace(basePrompt, '') + " " + response.replace('\n', '')
 
 	# Send the result to discord
 	try:
