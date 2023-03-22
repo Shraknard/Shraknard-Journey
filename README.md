@@ -43,7 +43,7 @@ The bot only need permission to "send message" and "read history".
 
 ### **3) Clone this repository and install dependencies** 
 
-Open a terminal on your linux server and clone the code : `git clone https://github.com/vmercadi/pyaxie-bot`  
+Open a terminal on your linux server and clone the code : `git clone https://github.com/Shraknard/Shraknard-Journey.git`  
 Then install the python dependencies : `pip3 install openai discord`
 
 ### **4) Edit secret.yaml**
